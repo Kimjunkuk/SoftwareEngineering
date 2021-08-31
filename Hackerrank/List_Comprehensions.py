@@ -63,3 +63,8 @@ This form is similar to the simple form of list comprehension, but it evaluates 
 >> ListOfThreeMultiples = [x for x in range(10) if x % 3 == 0] # Multiples of 3 below 10
 >> ListOfThreeMultiples
 [0, 3, 6, 9]"""
+
+"""
+
+https://docs.python.org/3/tutorial/datastructures.html
+"""
