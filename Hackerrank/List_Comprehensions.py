@@ -77,3 +77,21 @@ https://docs.python.org/3/tutorial/datastructures.html
 >>> combs
 [(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
 """
+
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+
+    results = [] #Create list 
+
+    for a in range(x+1): 
+      for b in range(y+1): 
+        for c in range(z+1):
+          if a+b+c != n:
+            results.append([a,b,c])
+    
+    """list.append(x) Add an item to the end of the list. Equivalent to a[len(a):] = [x]."""
+    
+    print(results)
