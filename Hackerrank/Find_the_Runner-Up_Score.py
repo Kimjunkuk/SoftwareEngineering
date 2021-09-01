@@ -4,7 +4,7 @@ Given the participants' score sheet for your University Sports Day, you are requ
 2번째로 큰수 찾기
 
 Natural language
-
+1nd
 두번째 큰수를 찾는 방법
 
 전체 수를 확인하여 비교 한다 비교하여 가장큰 수를 찾는다 그리고 가장 큰 수 보다 두번째로 작은 수를 식별하여 출력한다.
@@ -34,29 +34,46 @@ secondBig 값과 arr[3] 비교한다 큰수를 compare라는 변수에 넣는다
 secondBig 값과 arr[4] 비교한다 큰수를 compare라는 변수에 넣는다. 
 
 secondBig 값과 만약 같은 값을 찾을 경우 secondBig 값을 출력하고 연산을 종료한다. 
+__________________________________________________________________________________________________________________________
+2nd
+arr를 내림 차순 정렬
 
+arr[0]-1의 값과 나머지 값을 비교 하여 동일한 값 식별 및 출력 작업을 -1연산을 반복하며 진행
+__________________________________________________________________________________________________________________________
+3nd
+**2nd 문제점 음수값의 배열과 큰 갭의 배열의 값의 두번째 큰수를 식별하는 알고리즘에 한계가 있었음
+**python list 의 함수 사용할것
+
+arr를 내림 차순 정렬
+첫번째 값을 비교함수에 저장
+반복적으로 비교함수의 값과 작은 값을 식별 하도록 하되 작은 값을 식별시 바로 반복문 종료하도록 설계
+결과 출력
 
 Pseudo code
+
+arr.sort(reverse=True)
+compare에  arr[0] 저장
+반복문 실행
+조건compare > int(arr[x]) 성립시 result변수에 int(arr[x]) 저장 후 반복문 
+
 
 """
 
 if __name__ == '__main__':
     n = int(input())
-    arr = map(int, input().split())
+    arr = list(map(int, input().split()))
     
-    compare = arr
-    secondBig = 0
+    result = 0
 
+    arr.sort(reverse = True) 
+    
+    compare = int(arr[0])
+    
+    
     for x in range(n):
-      if compare < arr[x]:
-        compare = arr[x]
+        if compare > int(arr[x]):
+            result = int(arr[x])
+            break
 
-    """print(compare)"""
+    print(result)
 
-    for y in range(n):
-      secondBig = compare-1
-      for z in range(n):
-        if secondBig == arr[z]:
-          secondBig = arr[z]
-
-    print(secondBig)
