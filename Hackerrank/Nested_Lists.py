@@ -14,7 +14,8 @@
 8.오름 차순으로 낮은 값부터 가장 높은 값 순으로 데이터 정렬
 9.[['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41.0], ['Harsh', 39.0]] 형식으로 정렬된 데이터 에서  
 10. from operator import itemgetter
-11. arr.sort(key=itemgetter(2)) >> 두번째 인덱스를 기준으로 정렬 
+11. arr.sort(key=itemgetter(1)) >> 두번째 인덱스를 기준으로 정렬 
+13. 배열의 가장 첫번째 arr[0, (key=itemgetter(1))] 수보다 큰 수를 비교하며 찾음 
 
 >>> a = [10, 20, 30]
 >>> a.append([500, 600])
