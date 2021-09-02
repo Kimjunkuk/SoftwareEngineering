@@ -37,4 +37,8 @@ if __name__ == '__main__':
     
     arr.sort(key=itemgetter(1))
     print(arr)
+    
+        for x in range(len(arr)):
+        if arr(key=itemgetter(0))<arr(key=itemgetter(x)):
+            print(arr(key=itemgetter(x)))
         
