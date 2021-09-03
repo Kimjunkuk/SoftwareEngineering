@@ -1,7 +1,6 @@
 """
 두번째로 가장 작은 수를 찾는 문제 
 
-
 1.하나의 전역 리스트를 생성
 2.입력되는 숫자만큼 3,4번 내용을 반복함
 3.이름 변수에 삽입되는 이름을 저장함 
@@ -23,6 +22,13 @@
 [10, 20, 30, [500, 600]]
 >>> len(a)
 4
+
+[['Tina', 37.2],
+['Harry', 37.21]
+['Berry', 37.21]
+['Harsh', 39.0], 
+['Akriti', 41.0]]
+    0,0     0,1
 """
 
 from operator import itemgetter
@@ -38,8 +44,4 @@ if __name__ == '__main__':
     
     arr.sort(key=itemgetter(1))
     print(arr)
-    
-        for x in range(len(arr)):
-        if arr(key=itemgetter(0))<arr(key=itemgetter(x)):
-            print(arr(key=itemgetter(x)))
-        
+
