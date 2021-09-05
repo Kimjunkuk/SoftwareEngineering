@@ -22,13 +22,57 @@
 [10, 20, 30, [500, 600]]
 >>> len(a)
 4
+[['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41.0], ['Harsh', 39.0]]
+    print(arr[1][1]) >>> 37.21
+    print(arr[1][1])
+    
+    rank.sort(key=itemgetter(0))
+    print(rank)
+            
+            
+Compiler Message
+Wrong Answer
+Input (stdin)
 
-[['Tina', 37.2],
-['Harry', 37.21]
-['Berry', 37.21]
-['Harsh', 39.0], 
-['Akriti', 41.0]]
-    0,0     0,1
+Download
+5
+
+Harsh
+20
+Beria
+20
+Varun
+19
+Kakunami
+19
+Vikas
+21
+
+
+Expected Output
+Beria
+Harsh
+
+
+Compiler Message
+Wrong Answer
+Input (stdin)
+
+Download
+4
+Rachel
+-50
+Mawer
+-50
+Sheen
+-50
+Shaheen
+51
+Expected Output
+
+Download
+Shaheen
+    
 """
 
 from operator import itemgetter
@@ -36,12 +80,20 @@ from operator import itemgetter
 if __name__ == '__main__':
     
     arr=[]
+    rank=[]
     
     for _ in range(int(input())):
         name = input()
         score = float(input())
         arr.append([name, float(score)])
-    
+        
     arr.sort(key=itemgetter(1))
-    print(arr)
 
+    for x in range(len(arr)):
+        if arr[x][1] == arr[1][1] and arr[0][1]!=arr[x][1]:
+            rank.append(arr[x][0])
+            
+    rank.sort()
+    for y in range(len(rank)):
+        print(rank[y])
+          
