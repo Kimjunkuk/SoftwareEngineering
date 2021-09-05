@@ -1,4 +1,5 @@
 """
+1.Logs
 두번째로 가장 작은 수를 찾는 문제 
 
 1.하나의 전역 리스트를 생성
@@ -29,7 +30,28 @@
     rank.sort(key=itemgetter(0))
     print(rank)
             
-            arr[x][1] == arr[1][1] and
+    arr[x][1] == arr[1][1] and
+    
+    
+2. Natural Language
+#1
+#2
+#3
+#4
+#5
+#6
+#7
+#8
+#9
+#10
+#11
+#12
+#13
+#14
+#15
+#16
+#17
+#18
 """
 
 from operator import itemgetter
