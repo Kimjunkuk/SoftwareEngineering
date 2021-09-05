@@ -34,24 +34,22 @@
     
     
 2. Natural Language
-#1
-#2
-#3
-#4
-#5
-#6
-#7
-#8
-#9
-#10
-#11
-#12
-#13
-#14
-#15
-#16
-#17
-#18
+#1 Create an empty list named arr 
+#2 Create a second empty list named rank
+#3 Create an empty integer variable named second
+#4 getting input N
+#5 getting name values
+#6 getting score values
+#7 Create Nested list by the list named arr and putting name and score values
+#8 Sort arr Nested list by index 1(index(1) == score values)
+#9, 10 verify the second lowest values from the whole Nested list
+#11 Putting second lowest value to the second variable
+#12 break the For loop 
+#13, 14 searching the same values with the second-lowest value 
+#15 Putting the values to Nested list named rank
+#16 Sort Nested list named rank
+#17, 18 print out name values A-Z
+
 """
 
 from operator import itemgetter
