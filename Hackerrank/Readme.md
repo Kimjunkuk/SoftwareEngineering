@@ -1,2 +1,2 @@
 Rules
-All solutions are must include <b>Natural language, Pseudo code, Flow chart</b>
+All solutions are must include <b>Logs, Natural language, Pseudo code, Flow chart</b>
