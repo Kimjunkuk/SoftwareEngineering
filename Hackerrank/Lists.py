@@ -15,6 +15,10 @@ ex) insert 0 5 => "insert" ,0 ,5
 "insert", "print", "remove", "append", "sort", "pop", "reverse" == 7 commands
 if r[x][0](항상 첫번째 값이 명령어 값을 가짐)=="insert"
 
+strip([chars]) : 인자로 전달된 문자를 String의 왼쪽과 오른쪽에서 제거합니다.
+lstrip([chars]) : 인자로 전달된 문자를 String의 왼쪽에서 제거합니다.
+rstrip([chars]) : 인자로 전달된 문자를 String의 오른쪽에서 제거합니다.
+
     for x in range(N):
         l = n.split()
         if l[0]=="insert":
@@ -38,3 +42,22 @@ if r[x][0](항상 첫번째 값이 명령어 값을 가짐)=="insert"
 
 if __name__ == '__main__':
     N = int(input())
+
+    lis=[]
+    for _ in range(N):
+        s=input().strip().split(" ")
+        if s[0]=="insert":
+            lis.insert(int(s[1]),int(s[2]))
+        if s[0]=="print":
+            print(lis)
+        if s[0]=="remove":
+            lis.remove(int(s[1]))
+        if s[0]=="append":
+            lis.append(int(s[1]))
+        if s[0]=="sort":
+            lis.sort()
+        if s[0]=="pop":
+            lis.pop()
+        if s[0]=="reverse":
+            lis.reverse()
+            
