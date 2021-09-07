@@ -15,10 +15,14 @@ ex) insert 0 5 => "insert" ,0 ,5
 "insert", "print", "remove", "append", "sort", "pop", "reverse" == 7 commands
 if r[x][0](항상 첫번째 값이 명령어 값을 가짐)=="insert"
 
+    for x in range(N):
+        l = n.split()
+        if l[0]=="insert":
+            resault.insert(int(l[1]),int(l[2]))
         elif l[0]=="remove":
-            resault.remove(l[1])
+            resault.remove(int(l[1]))
         elif l[0]=="append":
-            resault.append(l[1])
+            resault.append(int(l[1]))
         elif l[0]=="sort":
             resault.sort()
         elif l[0]=="pop":
@@ -27,6 +31,7 @@ if r[x][0](항상 첫번째 값이 명령어 값을 가짐)=="insert"
             resault.reverse
         elif l[0]=="print":
             print(resault)
+
 
 
 """
