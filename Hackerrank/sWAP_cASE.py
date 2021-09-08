@@ -1,5 +1,7 @@
+"""use swapcase method"""
+
 def swap_case(s):
-    return
+    return s.swapcase()
 
 if __name__ == '__main__':
     s = input()
