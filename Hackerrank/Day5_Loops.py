@@ -10,8 +10,5 @@ import sys
 
 if __name__ == '__main__':
     n = int(input().strip())
-    
-    for x in range(n):
-        for y in range():
-            n*y = 2
-            print()
+    for y in range(1,11):
+        print(str(n)+" x "+str(y)+" = "+str(y*n))
