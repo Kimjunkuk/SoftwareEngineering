@@ -37,12 +37,12 @@ class Person:
     def yearPasses(self):
         # Increment the age of the person in here
 
-t = int(input())
-for i in range(0, t):
-    age = int(input())         
-    p = Person(age)  
-    p.amIOld()
-    for j in range(0, 3):
+t = int(input())#1
+for i in range(0, t):#2
+    age = int(input())#2         
+    p = Person(age)#2  
+    p.amIOld()#3
+    for j in range(0, 3):#4
         p.yearPasses()       
     p.amIOld()
     print("")
