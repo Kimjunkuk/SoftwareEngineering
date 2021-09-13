@@ -30,7 +30,8 @@ l=[]
 for x in range(n):
     s=input()
     for y in range(len(s)):
-        prime_numbers.insert(4, 11)
+        l.insert(y)
+        if l
 
 print(l)
 
