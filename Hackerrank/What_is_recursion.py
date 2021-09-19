@@ -22,3 +22,13 @@ def sum_positive_numbers(n):
     return n + sum_positive_numbers(n-1)
 
 print(sum_positive_numbers(1000)) # error
+
+
+
+
+"""Recursive structure"""
+Recursive Structur
+def recursive_function(parameters):
+    if base_case_condition(parameters):
+        return base_case_value
+    recursive_function(modified_parameters)
