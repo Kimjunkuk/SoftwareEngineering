@@ -6,6 +6,13 @@ Cloud IDE : https://replit.com/
 Referlink: https://www.nsnam.org/
 
 # PythonAutomation
+Recursive Structur
+def recursive_function(parameters):
+    if base_case_condition(parameters):
+        return base_case_value
+    recursive_function(modified_parameters)
+
+
 Automation project
 
 The official Python tutorial. This tutorial is designed to help people teach themselves Python. While it goes in a different order than the one we're taking here, it covers a lot of the same subjects that we explore in this course. You can refer to this resource for extra information on these subjects.
