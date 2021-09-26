@@ -5,6 +5,11 @@ Cloud IDE : https://replit.com/
 
 Referlink: https://www.nsnam.org/
 
+
+# Commands
+
+user@ubuntu:~$ diff filename1.py filename2.py
+
 # PythonAutomation
 Automation project
 
