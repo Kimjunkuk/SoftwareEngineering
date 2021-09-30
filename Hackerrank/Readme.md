@@ -1,4 +1,7 @@
 
+
+### Python3 doc link: https://docs.python.org/3.5/library/typing.html
+
 All solutions are must include <b>Logs, Natural language, Pseudo code, Flow chart</b>
 
 ### What's difference between while loop and for loop?<br>
