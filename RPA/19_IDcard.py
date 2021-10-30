@@ -7,11 +7,11 @@ ws = wb.active # 현제 활성화된 sheet 가져옴
 img = Image("CJL-new logo-14.png") # img 변수에 이미지 파일을 저장
 
 # 이미지 사이즈 조절 하기
-img.height = 100
-img.width = 100
+img.height = 72.96
+img.width = 212.16
 
 
-wb["ID Cards"].add_image(img, "A4")
+wb["ID Cards"].add_image.cell(img, "A2") # 워크북의 ID Cards 시트의 A4 셀에 이미지 삽입 
 
 # print(wb.sheetnames) # 모든 Sheet 이름 확인
 # print(wb.sheetnames)
