@@ -4,7 +4,14 @@ from openpyxl.drawing.image import Image # openpyxl 모듈의 Image 함수 불�
 wb = load_workbook("EmployeeIDcard.xlsx") # 작업을 원하는 워크북 불러오기
 ws = wb.active # 현제 활성화된 sheet 가져옴
 
-img = Image("CJL-new logo-14.png")
+img = Image("CJL-new logo-14.png") # img 변수에 이미지 파일을 저장
+
+# 이미지 사이즈 조절 하기
+img.height = 100
+img.width = 100
+
+
+wb["ID Cards"].add_image(img, "A4")
 
 # print(wb.sheetnames) # 모든 Sheet 이름 확인
 # print(wb.sheetnames)
