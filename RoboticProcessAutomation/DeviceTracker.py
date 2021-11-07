@@ -22,3 +22,7 @@
 3. 반납자의 아이디 카드의 바코드를 스캔
 4. 스캔된 스케너의 작업자 이름 입력 란을 찾아 스캔된 데이터를 삽입한다.  
 """
+
+import pyautogui
+#현 마우스 커서 위치 좌표 확인
+print("Current Mouse Position:", pyautogui.position())
