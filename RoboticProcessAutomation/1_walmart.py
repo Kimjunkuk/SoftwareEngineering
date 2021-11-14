@@ -8,7 +8,8 @@ wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # sample.xlsx 파일에�
 ws = wb.active # 활성화된 Sheet
 
 """
-
+1. Walmart PIckups GA Warehouse.xlsx 구글 시트를 엑셀 형식으로 C:\Users\zinus_user\Desktop\code 경로에 다운로드 
+2. 
 D컬럼(Load#) 공백인 PO#를 식별 
 
 만약 D컬럼의 값이 공백일 경우 mmm
