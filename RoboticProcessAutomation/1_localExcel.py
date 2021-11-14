@@ -1,97 +1,101 @@
-from selenium import webdriver 
-from selenium.webdriver.common.keys import Keys 
-import time 
-import pyperclip 
+from oauth2client.client import verify_id_token
+from openpyxl import load_workbook # 파일 불러오기
+from bs4 import BeautifulSoup
+from selenium import webdriver
+import time
 
-def walmart_login(): 
-    #드라이버 로딩 
-    driver = webdriver.Chrome('./chromedriver.exe') 
-    
-    #사용할 변수 선언 
-    #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/N3SUi/resume/as/authorization.ping' << 사용불가&로그인 불가 url 
-    #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/ie6cU/resume/as/authorization.ping' << 사용불가&로그인 불가 url
-    url = '****'
-    uid = '****' 
-    upw = '****' 
-    
-    #Walmart 로그인 페이지로 이동 
-    driver.get(url) 
-    time.sleep(3)  #로딩 대기
-    
+def localExcel():
+    wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # Walmart PIckups GA Warehouse.xlsx 파일에서 wb 을 불러옴
+    ws = wb.active  # 활성화된 Sheet
 
-    # find_element_by_id
-    # find_element_by_name
-    # find_element_by_xpath
-    # find_element_by_link_text
-    # find_element_by_partial_link_text
-    # find_element_by_tag_name
-    # find_element_by_class_name
+    """
+    1. Google sheet download (Walmart PIckups GA Warehouse.xlsx) 
 
-    
-    # 아이디 입력폼 Rev-1 >> tag_id = driver.find_element_by_id('uname') 
-    # find_element_by_class_name 테그 안에 해당하는 문장을 인식하도록 설정
-    tag_id =driver.find_element_by_css_selector("input[data-automation-id='uname']")
-    
-    #패스워드 입력폼 Rev-1 >> tag_pw = driver.find_element_by_id('pwd') 
-    tag_pw =driver.find_element_by_css_selector("input[data-automation-id='pwd']")
-    
-    
-    # id 입력 
-    # # 입력폼 클릭 -> paperclip에 선언한 uid 내용 복사 -> 붙여넣기 
-    tag_id.click() 
-    pyperclip.copy(uid) 
-    tag_id.send_keys(Keys.CONTROL, 'v') 
-    time.sleep(1) 
-    
-    # pw 입력 # 입력폼 클릭 -> paperclip에 선언한 upw 내용 복사 -> 붙여넣기 
-    tag_pw.click() 
-    pyperclip.copy(upw) 
-    tag_pw.send_keys(Keys.CONTROL, 'v') 
-    time.sleep(1) 
-    
-    #로그인 버튼 클릭 
-    login_btn = driver.find_element_by_css_selector("button[data-automation-id='loginBtn']")
-    login_btn.click() 
-    time.sleep(6) 
-    
-    # Supplier 버튼 클릭
-    Supplier_btn = driver.find_element_by_id('transom-navbar-Supplier')
-    Supplier_btn.click() 
-    time.sleep(3) 
-    
-    # Routing Tools 버튼 클릭
-    Routing_Tools_btn = driver.find_element_by_id('twist-nav-Routing_Tools')
-    Routing_Tools_btn.click() 
-    time.sleep(2) 
-    
-    # Routing Status 버튼 클릭
-    Routing_Status_btn = driver.find_element_by_link_text("Routing Status").click() # a tag link_text를 직접 클릭할 수 있는 모듈 사용함
-    Routing_Status_btn.click() 
-    time.sleep(2) 
-    
-    # PO# or Load# 버튼 클릭
-    PO_Load_btn = driver.find_element_by_id("mat-tab-label-0-1").click() 
-    PO_Load_btn.click() 
-    time.sleep(100) 
-    
-    
-    #체크 박스 클릭 
-    # login_btn = driver.find_element_by_css_selector("input[type='checkbox']")
-    # login_btn.click() 
-    # time.sleep(1) 
-    
-    
-    
+    2. 빈 Load 번호 cell 정보 확인 & 빈 Load번호에 해당하는 PO 번호 식별하여 값 조회작업
+        2-1. [IF]: 빈칸이 있다면
+            2-1-1. 빈 Load 번호 cell 정보 확인
+                2-1-1-1. Blank가 아닌 PO번호의 셀 정보를 담을 리스트 생성
+                2-1-1-2. Blank인 PO번호의 셀 정보를 담을 리스트 생성
+                2-1-1-3. [Loop]: 2번 row 부터 ws.max_row 마지막 row 까지 작업 
+                    2-1-1-3-1. y변수와 컬럼의 수를 넣어 식별한 컬럼을 지정하여 준다. 
+                    2-1-1-3-2. Load 넘버 컬럼의 값을 마지막 row 까지 가져와 변수에 넣는다.
+                    2-1-1-3-3. [IF]: Load 컬럼의 cell이 None 이라면?
+                        2-1-1-3-3-1. Load 컬럼의 cell이 None인 셀 정보를 중첩 리스트형태로 Lod_num_bl 리스트에 넣는다. 
+                    
+                    2-1-1-3-4. [IF]: Load 컬럼의 cell이 None 아니라면?
+                        2-1-1-3-4-1. Load 컬럼의 cell이 None인 셀 정보를 중첩 리스트형태로 Lod_num 리스트에 넣는다. 
+                
+            2-1-2. [Loop]: 리스트의 길이만큼 [][1] << 두번째 인덱스의 모든 값을 불러온다  
+                2-1-2-1. 뒷자리에 해당 하는 값을 모두 -2 씩 감소 시켜 다시 Lod_num_bl 중첩 리스트에 저장한다.
+                2-1-2-2. PO번호를 담을 전역 리스트 추가 생성
+                2-1-2-3. [Loop]: Lod_num_bl 각각의 인덱스에 해당하는 셀정보(PO번호)를 저장된 리스트의 길이만큼 반복 식별
+                    2-1-2-3-1. 변수를 생성하여 Load 번호가 없는 PO번호를 저장함
+                    2-1-2-3-2. 변수에 저장된 PO 번호를 미리 생성한 전역 리스트에 저장 
+                
 
-    #로그인이 실패했을 경우 - 예: 아이디나 패스워드 불일치 
-    # try: 
-    #     #로그인 실패창 
-    #     login_error = driver.find_element_by_css_selector('#err_common > div > p') 
-    
-    #     print('로그인 실패 > ', login_error.text) 
-    
-    # except: 
-    #     print('로그인 성공') 
+
+            2-1-4. Walmart supplier 웹사이트에 접속
+                2-1-4-1. [IF]: Ratail link 웹사이트로 접속이 되었다면 
+                    2-1-4-1-1. Transportation Supply Chain Portal 2.0 메뉴 클릭
+                    2-1-4-1-2. 2-1-4-2-1 << 부터 작업시작
+                    
+                2-1-4-2. [IF]: Transportation Supply Chain Portal 2.0 접속이 되었다면 
+                    2-1-4-2-1. ID, PW 정보 입력 로그인 버튼 클릭
+                    2-1-4-2-2. 상단 Supplier 메뉴 클릭
+                    2-1-4-2-3. Routing Tools 메뉴 클릭
+                    2-1-4-2-4. Routing Status 메뉴 클릭
+                    2-1-4-2-5. Search 메뉴에서 PO# or Load# 메뉴 클릭
+                    2-1-4-2-6. Search By PO Numbers 메뉴에 Load 번호가 없는 PO 번호 입력
+                    2-1-4-2-7. 하단의 Search 메뉴 클릭 
+                    
+
+            
+        2-2. [IF]: 빈칸이 없다면 
+            2-2-1. 다음 확인 작업시 까지 시스템 대기
         
+    3. 
+
+    """
+
+
+    Lod_num = []  # 2-1-1-1
+    Lod_num_bl = [] # 2-1-1-2
+
+
+    for x in range(2, 150):# 2-1-1-3
+        y=4 # 2-1-1-3-1
+        verify=ws.cell(row=x, column=y).value # 2-1-1-3-2
+        if verify == None: #
+            # 2-1-1-3-3-1
+            #Lod_num_bl.append(ws.cell(row=x, column=y)) 
+            Lod_num_bl.append([x,y]) # << Nested Lists(중첩 리스트 생성 )
+    
+
+        else: # 2-1-1-3-4
+            #Lod_num.append(ws.cell(row=x, column=y)) 
+            Lod_num.append([x,y]) # 2-1-1-3-4-1
+
+
+    # List index 값확인
+    # index = Lod_num_bl.index([9,4]) 
+    # print('The index of 9,4:', index)
+
+    PO_num_li = []
+
+    for y in range(len(Lod_num_bl)): # 2-1-2
+        Lod_num_bl[y][1]-=2 # 2-1-2-1
         
-walmart_login()
+    for z in range(len(Lod_num_bl)): # 2-1-2-3
+        for k in range(0,1):
+            PO_num=ws.cell(row=Lod_num_bl[z][k], column=Lod_num_bl[z][1]).value # 2-1-2-3-1
+            # print("row:"+str(Lod_num_bl[z][k]))
+            # print("column:"+str(Lod_num_bl[z][1]))
+            # print("PO_num_li:"+str(PO_num_li))
+            PO_num_li.append(PO_num) # 2-1-2-3-2
+
+    #print(Lod_num_bl) # None 인 모든 셀 정보 출력
+    #print(Lod_num) # None이 아닌 모든 셀 정보 출력
+    #print(PO_num_li) # Load 넘버가 없는 모든 PO번호 출력
+
+
+localExcel()
