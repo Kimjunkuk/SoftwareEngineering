@@ -4,29 +4,36 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 
-wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # sample.xlsx 파일에서 wb 을 불러옴
-ws = wb.active # 활성화된 Sheet
+wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # Walmart PIckups GA Warehouse.xlsx 파일에서 wb 을 불러옴
+ws = wb.active  # 활성화된 Sheet
 
 """
-1. Walmart PIckups GA Warehouse.xlsx 구글 시트를 엑셀 형식으로 C:\Users\zinus_user\Desktop\code 경로에 다운로드 
-2. 
-D컬럼(Load#) 공백인 PO#를 식별 
+1. Google sheet download (Walmart PIckups GA Warehouse.xlsx) 
 
-만약 D컬럼의 값이 공백일 경우 mmm
+2. 빈 Load 번호 cell 정보 확인 
+    2-1. [IF]: 빈칸이 있다면
+        2-1-1. 빈 Load 번호 cell의 좌측 2컬럼 옆 PO 번호를 식별
+        2-1-2. Walmart supplier 웹사이트에 접속
+        2-1-3. ID, PW 정보 입력 로그인 버튼 클릭
+        2-1-4. 상단 Supplier 메뉴 클릭
+        2-1-5. Routing Tools 메뉴 클릭
+        2-1-6. Routing Status 메뉴 클릭
+        2-1-7. Search 메뉴에서 PO# or Load# 메뉴 클릭
+        2-1-8. Search By PO Numbers 메뉴에 Load 번호가 없는 PO 번호 입력
+        2-1-9. 하단의 Search 메뉴 클릭 
 
-"""    
+        
+    2-2. [IF]: 빈칸이 없다면 
+    
+3. 
 
-# cell 데이터 불러오기
-# Blank가 아닌 PO#의 셀, Load 넘버가 빈 PO#의 넘버 
+"""
 
-Po_num = [] # Blank가 아닌 PO번호의 셀 정보를 담을 리스트 생성 
+
+Po_num = []  # Blank가 아닌 PO번호의 셀 정보를 담을 리스트 생성
 Po_num_bl = [] # Blank인 PO번호의 셀 정보를 담을 리스트 생성
 
-# a=[]
-# for i in range(5):    
-#     a.append(i)
-# print(a)
-#print(ws.cell(row=6, column=2).value)
+
 for x in range(2, 149):
     y=2
     verify=ws.cell(row=x, column=y).value #PO 넘버 컬럼의 값을 149low 까지 가져와 변수에 넣는다.
@@ -42,36 +49,9 @@ for x in range(2, 149):
 print(Po_num)
 
 
-    #print(ws.cell(row=x, column=y).value, end=" ") # 1 2 3 4 ..
-    # verify=ws.cell(row=x, column=y).value
-    #if verify=="": #<< 공백일 경우에만 작용
-
-# driver = webdriver.Chrome("C:\Program Files\Google\Chrome\Application\chrome_proxy.exe")
-# url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/N3SUi/resume/as/authorization.ping'
-# driver.get(url)
-#delay=3 #리소스를 기다리는 시간 
-#driver.implicitly_wait(delay)
 
 
 
 
 
-# driver.find_element_by_id('uname').send_keys('chany.oh@cjlogisticsamerica.com')
-# driver.find_element_by_id('pwd').send_keys('CJL123!@#')
-# driver.find_element_by_id('loginBtn').click()
 
-# find_element_by_id
-# find_element_by_name
-# find_element_by_xpath
-# find_element_by_link_text
-# find_element_by_partial_link_text
-# find_element_by_tag_name
-# find_element_by_class_name
-# find_element_by_css_selector
-
-        
-
-
-#for x in range(5):
-    """[summary]
-    """ #   print(ws["A"+x].value)
