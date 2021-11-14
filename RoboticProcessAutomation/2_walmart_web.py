@@ -55,24 +55,37 @@ def walmart_login():
     time.sleep(6) 
     
     # Supplier 버튼 클릭
-    login_btn = driver.find_element_by_id('transom-navbar-Supplier')
-    login_btn.click() 
-    time.sleep(3) 
+    Supplier_btn = driver.find_element_by_id('transom-navbar-Supplier')
+    if Supplier_btn != None: # 2-1-4-2. [IF]: Transportation Supply Chain Portal 2.0 접속이 되었다면 
+        Supplier_btn.click() 
+    else:
+        Supply_Chain_btn = driver.find_element_by_link_text("Transportation Supply Chain Portal 2.0")
+        Supply_Chain_btn.click() 
+    time.sleep(4) 
     
     # Routing Tools 버튼 클릭
-    login_btn = driver.find_element_by_id('twist-nav-Routing_Tools')
-    login_btn.click() 
+    Routing_Tools_btn = driver.find_element_by_id('twist-nav-Routing_Tools')
+    Routing_Tools_btn.click() 
     time.sleep(2) 
     
     # Routing Status 버튼 클릭
-    login_btn = driver.find_element_by_link_text("Routing Status").click() # a tag link_text를 직접 클릭할 수 있는 모듈 사용함
-    login_btn.click() 
-    time.sleep(100) 
+    # a tag link_text를 직접 클릭할 수 있는 모듈 사용함
+    Routing_Status_btn = driver.find_element_by_link_text("Routing Status").click() 
+    Routing_Status_btn.click() 
+    time.sleep(2) 
     
     # PO# or Load# 버튼 클릭
-    login_btn = driver.find_element_by_id("mat-tab-label-0-1").click() 
-    login_btn.click() 
+    PO_Load_btn = driver.find_element_by_css_selector("div[aria-controls='mat-tab-content-0-1']").click()
+    
+    
+    PO_Load_btn.click() 
     time.sleep(100) 
+    
+    
+    #체크 박스 클릭 
+    # login_btn = driver.find_element_by_css_selector("input[type='checkbox']")
+    # login_btn.click() 
+    # time.sleep(1) 
     
     
     
