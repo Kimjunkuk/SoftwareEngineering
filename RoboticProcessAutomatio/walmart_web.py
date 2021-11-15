@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 import time 
 import pyperclip 
+# import localExcel
+import pyautogui
 
 
 def walmart_login(): 
@@ -17,7 +19,7 @@ def walmart_login():
     
     #Walmart 로그인 페이지로 이동 
     driver.get(url) 
-    time.sleep(3)  #로딩 대기
+    time.sleep(9)  #로딩 대기
     
 
     # find_element_by_id
@@ -79,15 +81,48 @@ def walmart_login():
     # PO_Load_btn = driver.find_element_by_css_selector("div[id='mat-tab-label-0-1']").click()
     PO_Load_btn = driver.find_element_by_id("mat-tab-label-0-1")
     PO_Load_btn.click() 
-    time.sleep(100) 
+    time.sleep(2) 
+    
+    # Walmart PO번호 입력 
+    # localExcel.PO_num_li #PO 번호 리스트 Import
+    tag_id =driver.find_element_by_id("mat-input-0")
+    Po_bl_num = "3558923380"
+    tag_id.click() 
+    pyperclip.copy(Po_bl_num) 
+    tag_id.send_keys(Keys.CONTROL, 'v') 
+    time.sleep(2)
+    
+    #position = pyautogui.position()
+
+    # 화면 전체 크기 확인하기
+    # print(pyautogui.size())
+
+    # x, y 좌표
+    # print(position.x)
+    # print(position.y)
+
+    # 마우스 이동 (x 좌표, y 좌표)
+    pyautogui.moveTo(500, 500)
+    
+    # 마우스 클릭
+    pyautogui.click()
+    time.sleep(2)
+    
+    #SEARCH 버튼 클릭 
+    search_btn = driver.find_element_by_xpath(".//span[@class = 'mat-button-wrapper' and contains(text(), 'Search')]")
+    search_btn.click() 
+    time.sleep(2) 
     
     
     #체크 박스 클릭 
-    # login_btn = driver.find_element_by_css_selector("input[type='checkbox']")
-    # login_btn.click() 
-    # time.sleep(1) 
+    login_btn = driver.find_element_by_css_selector("input[type='checkbox']")
+    login_btn.click() 
+    time.sleep(2) 
     
-    
+    #Export 버튼 클릭 
+    export_btn = driver.find_element_by_xpath("//*[contains(text(), 'Export')]")
+    export_btn.click() 
+    time.sleep(100) 
     
 
     #로그인이 실패했을 경우 - 예: 아이디나 패스워드 불일치 
