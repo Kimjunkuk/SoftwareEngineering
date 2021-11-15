@@ -95,7 +95,8 @@ def localExcel():
 
     #print(Lod_num_bl) # None 인 모든 셀 정보 출력
     #print(Lod_num) # None이 아닌 모든 셀 정보 출력
-    #print(PO_num_li) # Load 넘버가 없는 모든 PO번호 출력
+    print("Load 넘버가 없는 모든 PO번호:"+ str(PO_num_li)) # Load 넘버가 없는 모든 PO번호 출력
 
 
 localExcel()
+
