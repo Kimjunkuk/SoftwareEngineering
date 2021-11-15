@@ -10,7 +10,7 @@ def google_download():
     #사용할 변수 선언 
     #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/N3SUi/resume/as/authorization.ping' << 사용불가&로그인 불가 url 
     #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/ie6cU/resume/as/authorization.ping' << 사용불가&로그인 불가 url
-    url = 'https://drive.google.com/drive/my-drive'
+    url = 'https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin'
     uid = '****' 
     upw = '****' 
     
@@ -34,6 +34,5 @@ def google_download():
     time.sleep(100) 
     
     
-    
-    
 google_download()
+
