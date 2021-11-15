@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import time 
 import pyperclip 
 
+
 def walmart_login(): 
     #드라이버 로딩 
     driver = webdriver.Chrome('./chromedriver.exe') 
@@ -70,14 +71,13 @@ def walmart_login():
     
     # Routing Status 버튼 클릭
     # a tag link_text를 직접 클릭할 수 있는 모듈 사용함
-    Routing_Status_btn = driver.find_element_by_link_text("Routing Status").click() 
+    Routing_Status_btn = driver.find_element_by_link_text("Routing Status")
     Routing_Status_btn.click() 
     time.sleep(2) 
     
     # PO# or Load# 버튼 클릭
-    PO_Load_btn = driver.find_element_by_css_selector("div[aria-controls='mat-tab-content-0-1']").click()
-    
-    
+    # PO_Load_btn = driver.find_element_by_css_selector("div[id='mat-tab-label-0-1']").click()
+    PO_Load_btn = driver.find_element_by_id("mat-tab-label-0-1")
     PO_Load_btn.click() 
     time.sleep(100) 
     
