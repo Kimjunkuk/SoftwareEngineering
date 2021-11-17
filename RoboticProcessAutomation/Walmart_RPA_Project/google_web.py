@@ -14,8 +14,11 @@ def google_download():
     uid = '****' 
     upw = '****' 
     
+    uid1 = '****' 
+    upw2 = '****' 
+    
     driver.get(url) 
-    time.sleep(3)  #로딩 대기
+    time.sleep(5)  #로딩 대기
     
     # 아이디 입력폼 Rev-1 >> tag_id = driver.find_element_by_id('uname') 
     # find_element_by_class_name 테그 안에 해당하는 문장을 인식하도록 설정
