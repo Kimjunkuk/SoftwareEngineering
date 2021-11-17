@@ -1,6 +1,8 @@
-from oauth2client.client import verify_id_token
 from openpyxl import load_workbook # 파일 불러오기
-import os
+
+
+PO_num_li = [] # Load 번호가 없는 PO 번호 전역 리스트
+
 
 def po_bl_num_so():
     wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # Walmart PIckups GA Warehouse.xlsx 파일에서 wb 을 불러옴
@@ -28,7 +30,6 @@ def po_bl_num_so():
     # index = Lod_num_bl.index([9,4]) 
     # print('The index of 9,4:', index)
 
-    PO_num_li = []
 
     for y in range(len(Lod_num_bl)): # 2-1-2
         Lod_num_bl[y][1]-=2 # 2-1-2-1
@@ -45,45 +46,32 @@ def po_bl_num_so():
     #print(Lod_num) # None이 아닌 모든 셀 정보 출력
     print("Load 넘버가 없는 모든 PO번호:"+ str(PO_num_li)) # Load 넘버가 없는 모든 PO번호 출력
 
-
-
-
-
-def insert_load_num():
-    ## 현재 폴더에서 파일 이름 리스트를 얻기
-    path = "C:/Users/zinus_user/Downloads"
-    file_list = os.listdir(path)
-    print ("file_list: {}".format(file_list))
-    # file_list: ['test2.xlsx', 'testdir', 'test1.xlsx']
-
-    ## 파일중 엑셀파일 리스트 얻기
-    exfile_list =[i for i in file_list if os.path.splitext(i)[-1]==".xlsx"]
-    print("excel:", exfile_list)
-    # excel: ['test2.xlsx', 'test1.xlsx']
+        
+    # load_num1 = ws.cell(row=2, column=2).value 
+    # load_num2 = ws.cell(row=2, column=9).value 
+    # load_num3 = ws.cell(row=2, column=16).value 
+    # print(load_num1, load_num2, load_num3)
     
-    excelfilename = exfile_list[0]
-    wb = load_workbook(str(path+"/"+excelfilename)) # Walmart PIckups GA Warehouse.xlsx 파일에서 wb 을 불러옴
-    ws = wb.active  # 활성화된 Sheet
-
-    ## 엑셀 시트 이름 얻기
-    # wb = load_workbook(filename = "/Users/xzero/excel_test/test1.xlsx")
-    # print (wb.sheetnames)
-    # ['1번', 'two']
-
-    load_num1 = ws.cell(row=2, column=2).value 
-    load_num2 = ws.cell(row=2, column=9).value 
-    load_num3 = ws.cell(row=2, column=16).value 
-    print(load_num1, load_num2, load_num3)
+    # wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # Walmart PIckups GA Warehouse.xlsx 파일에서 wb 을 불러옴
+    # ws = wb.active  # 활성화된 Sheet
     
-    wb = load_workbook("Walmart PIckups GA Warehouse.xlsx") # Walmart PIckups GA Warehouse.xlsx 파일에서 wb 을 불러옴
-    ws = wb.active  # 활성화된 Sheet
+#     print(ws.cell(column=1, row=1).value) # ws["A1"].value
+# print(ws.cell(column=2, row=1).value) # ws["B1"].value
 
+# c = ws.cell(column=3, row=1, value=10) # ws["C1"].value = 10
+# print(c.value) # ws["C1"]
 
+# from random import *
+
+# # 반복문을 이용해서 랜덤 숫자 채우기
+# index = 1
+# for x in range(1, 11): # 10 개 row
+#     for y in range(1, 11): # 10 개 column
+#         #ws.cell(row=x, column=y, value=randint(0, 100)) # 0~100 사이의 숫자
+#         ws.cell(row=x, column=y, value=index)
+#         index += 1
+
+# wb.save("sample.xlsx")
 
 
 po_bl_num_so()
-insert_load_num()
-
-
-
-
