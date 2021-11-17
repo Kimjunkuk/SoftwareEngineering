@@ -15,8 +15,8 @@ def walmart_login():
     #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/N3SUi/resume/as/authorization.ping' << 사용불가&로그인 불가 url 
     #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/ie6cU/resume/as/authorization.ping' << 사용불가&로그인 불가 url
     url = 'https://retaillink2.wal-mart.com/TSCP2/?ukey=W6520'
-    uid = 'chany.oh@cjlogisticsamerica.com' 
-    upw = 'CJL123!@#' 
+    uid = '****' 
+    upw = '****' 
     
     #Walmart 로그인 페이지로 이동 
     driver.get(url) 
