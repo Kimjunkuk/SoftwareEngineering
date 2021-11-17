@@ -4,6 +4,7 @@ import time
 import pyperclip 
 # import localExcel
 import pyautogui
+import localExcel
 
 
 def walmart_login(): 
@@ -14,12 +15,12 @@ def walmart_login():
     #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/N3SUi/resume/as/authorization.ping' << 사용불가&로그인 불가 url 
     #url = 'https://retaillink.login.wal-mart.com/?resumePath=/as/ie6cU/resume/as/authorization.ping' << 사용불가&로그인 불가 url
     url = 'https://retaillink2.wal-mart.com/TSCP2/?ukey=W6520'
-    uid = '****' 
-    upw = '****' 
+    uid = 'chany.oh@cjlogisticsamerica.com' 
+    upw = 'CJL123!@#' 
     
     #Walmart 로그인 페이지로 이동 
     driver.get(url) 
-    time.sleep(9)  #로딩 대기
+    time.sleep(5)  #로딩 대기
     
 
     # find_element_by_id
@@ -85,11 +86,13 @@ def walmart_login():
     
     # Walmart PO번호 입력 
     # localExcel.PO_num_li #PO 번호 리스트 Import
+    
     tag_id =driver.find_element_by_id("mat-input-0")
-    Po_bl_num = "3558923380"
+    Po_bl_num = str(localExcel.PO_num_li)
     tag_id.click() 
     pyperclip.copy(Po_bl_num) 
     tag_id.send_keys(Keys.CONTROL, 'v') 
+    #localExcel.PO_num_li=[] #초기화
     time.sleep(2)
     
     #position = pyautogui.position()
@@ -122,7 +125,7 @@ def walmart_login():
     #Export 버튼 클릭 
     export_btn = driver.find_element_by_xpath("//*[contains(text(), 'Export')]")
     export_btn.click() 
-    time.sleep(100) 
+    time.sleep(5) 
     
 
     #로그인이 실패했을 경우 - 예: 아이디나 패스워드 불일치 
