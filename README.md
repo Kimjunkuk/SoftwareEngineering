@@ -6,163 +6,181 @@ Cloud IDE : https://replit.com/
 Referlink: https://www.nsnam.org/
 
 
-# Commands
+# Additional Tools
 
-user@ubuntu:~$ diff filename1.py filename2.py
+https://arp242.net/diy.html 
 
-user@ubuntu:~$ diff -u filename1.py filename2.py
+https://help.github.com/en/articles/closing-issues-using-keywords
 
-user@ubuntu:~$ cat filename1.diff << update history check
+https://help.github.com/en/articles/setting-guidelines-for-repository-contributors 
 
-diff
-diff is used to find differences between two files. On its own, it’s a bit hard to use; instead, use it with diff -u to find lines which differ in two files:
+https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html
 
-diff -u
-diff -u is used to compare two files, line by line, and have the differing lines compared side-by-side in the same output. See below:
+https://stackify.com/what-is-cicd-whats-important-and-how-to-get-it-right/
 
-~$ cat menu1.txt 
-Menu1:
+https://docs.travis-ci.com/user/tutorial/
 
-Apples
-Bananas
-Oranges
-Pears
+https://docs.travis-ci.com/user/build-stages/
 
-~$ cat menu2.txt 
-Menu:
 
-Apples
-Bananas
-Grapes
-Strawberries
+# Advanced Git Cheat Sheet
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Explanation & Link</th>
+  </tr>
+  <tr>
+    <td>git commit -a</td>
+    <td>Stages files automatically</td>
+  </tr>
+  <tr>
+    <td>git log -p</td>
+    <td>Produces patch text</td>
+  </tr>
+  <tr>
+    <td>git show</td>
+    <td>Shows various objects</td>
+  </tr>
+  <tr>
+    <td>git diff</td>
+    <td>Is similar to the Linux `diff` command, and can show the differences in various commits</td>
+  </tr>
+  <tr>
+    <td>git diff --staged</td>
+    <td>An alias to --cached, this will show all staged files compared to the named commit</td>
+  </tr>
+  <tr>
+    <td>git add -p</td>
+    <td>Allows a user to interactively review patches to add to the current commit</td>
+  </tr>
+  <tr>
+    <td>git mv</td>
+    <td>Similar to the Linux `mv` command, this moves a file</td>
+  </tr>
+  <tr>
+    <td>git rm</td>
+    <td>Similar to the Linux `rm` command, this deletes, or removes a file</td>
+  </tr>
 
-~$ diff -u menu1.txt menu2.txt 
---- menu1.txt   2019-12-16 18:46:13.794879924 +0900
-+++ menu2.txt   2019-12-16 18:46:42.090995670 +0900
-@@ -1,6 +1,6 @@
--Menu1:
-+Menu:
+</table>
+
+
+There are many useful git cheatsheets online as well. Please take some time to research and study a few, such as this one.
+
+.gitignore files
+.gitignore files are used to tell the git tool to intentionally ignore some files in a given Git repository. For example, this can be useful for configuration files or metadata files that a user may not want to check into the master branch. Check out more at: https://git-scm.com/docs/gitignore.
+
+A few common examples of file patterns to exclude can be found here.
+
+# Git Revert Cheat Sheet
+
+git checkout(https://git-scm.com/docs/git-checkout) is effectively used to switch branches.
  
- Apples
- Bananas
--Oranges
--Pears
-+Grapes
-+Strawberries
+git reset(https://git-scm.com/docs/git-reset#_examples) basically resets the repo, throwing away some changes. It’s somewhat difficult to understand, so reading the examples in the documentation may be a bit more useful.t
+
+There are some other useful articles online, which discuss more aggressive approaches to resetting the repo(https://jwiegley.github.io/git-from-the-bottom-up/3-Reset/4-doing-a-hard-reset.html).
+
+git commit --amend(https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---amend) is used to make changes to commits after-the-fact, which can be useful for making notes about a given commit.
+
+git revert(https://git-scm.com/docs/git-revert) makes a new commit which effectively rolls back a previous commit. It’s a bit like an undo command.
+
+There are a few ways(https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things) you can rollback commits in Git.
+
+There are some interesting considerations about how git object data is stored, such as the usage of sha-1. 
+
+Feel free to read more here:
+
+https://en.wikipedia.org/wiki/SHA-1
+
+https://github.blog/2017-03-20-sha-1-collision-detection-on-github-com/
 
 
-Patch
-Patch is useful for applying file differences. See the below example, which compares two files. The comparison is saved as a .diff file, which is then patched to the original file!
+# Git Branches and Merging Cheat Sheet
 
-~$ cat hello_world.txt 
-Hello World
-~$ cat hello_world_long.txt 
-Hello World
-
-It's a wonderful day!
-~$ diff -u hello_world.txt hello_world_long.txt 
---- hello_world.txt     2019-12-16 19:24:12.556102821 +0900
-+++ hello_world_long.txt        2019-12-16 19:24:38.944207773 +0900
-@@ -1 +1,3 @@
- Hello World
-+
-+It's a wonderful day!
-~$ diff -u hello_world.txt hello_world_long.txt > hello_world.diff
-~$ patch < hello_world.diff 
-patching file hello_world.txt
-~$ cat hello_world.txt 
-Hello World
-
-It's a wonderful day!
-
-
-# PythonAutomation
-Automation project
-
-The official Python tutorial. This tutorial is designed to help people teach themselves Python. While it goes in a different order than the one we're taking here, it covers a lot of the same subjects that we explore in this course. You can refer to this resource for extra information on these subjects.
->>https://docs.python.org/3/tutorial/index.html
-
-The Think Python book. This book aims to teach people how to program in Python. It's available online in PDF and browsable forms. Again, you can use this resource to learn more about some of the subjects we cover.
->>https://greenteapress.com/wp/think-python/
-
-The official language reference. This is a technical reference of all Python language components. At first, this resource might be a little too complex, but as you learn how Python works and how it’s built, this can be a useful reference to understand the details of these interactions.
->>https://docs.python.org/3/reference/index.html
-
-More About Python
-Using Python on your own
-The best way to learn any programming language is to practice it on your own as much as you can. If you have Python installed on your computer, you can execute the interpreter by running the python3 command (or just python on Windows), and you can close it by typing exit() or Ctrl-D.
-
-If you don’t already have Python installed on your machine, that’s alright. We’ll explain how to install it in an upcoming course.
-
-In the meantime, you can still practice by using one of the many online Python interpreters or codepads available online. There’s not much difference between an interpreter and a codepad. An interpreter is more interactive than a codepad, but they both let you execute code and see the results.
-
-Below, you’ll find links to some of the most popular online interpreters and codepads. Give them a go to find your favorite.
-
-https://www.python.org/shell/
-
-https://www.onlinegdb.com/online_python_interpreter
-
-https://repl.it/languages/python3
-
-https://www.tutorialspoint.com/execute_python3_online.php
-
-https://rextester.com/l/python3_online_compiler
-
-https://trinket.io/python3
-
-Additional Python resources
-While this course will give you information about how Python works and how to write scripts in Python, you’ll likely want to find out more about specific parts of the language. Here are some great ways to help you find additional info: 
-
-Read the official Python documentation.
-
-Search for answers or ask a question on Stack Overflow. 
-
-Subscribe to the Python tutor mailing list, where you can ask questions and collaborate with other Python learners.
-
-Subscribe to the Python-announce mailing list to read about the latest updates in the language.
-
-Python history and current status
-Python was released almost 30 years ago and has a rich history. You can read more about it on the History of Python Wikipedia page or in the section on the history of the software from the official Python documentation.
-
-Python has recently been called the fastest growing programming language. If you're interested in why this is and how it’s measured, you can find out more in these articles:
-
-The Incredible Growth of Python (Stack Overflow)
-
-Why is Python Growing So Quickly - Future Trends (Netguru)
-
-By the numbers: Python community trends in 2017/2018 (Opensource.com)
-
-Developer Survey Results 2018 (Stack Overflow)
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Explanation & Link</th>
+  </tr>
+  <tr>
+    <td>git branch</td>
+    <td>Used to manage branches</td>
+  </tr>
+  <tr>
+    <td>git branch <name></td>
+    <td>Creates the branch</td>
+  </tr>
+  <tr>
+    <td>git branch -d <name></td>
+    <td>Deletes the branch</td>
+  </tr>
+  <tr>
+    <td>git branch -D <name></td>
+    <td>Forcibly deletes the branch</td>
+  </tr>
+  <tr>
+    <td>git checkout <branch></td>
+    <td>Switches to a branch.</td>
+  </tr>
+  <tr>
+    <td>git checkout -b <branch></td>
+    <td>Creates a new branch and switches to it.</td>
+  </tr>
+  <tr>
+    <td>git merge <branch> </td>
+    <td>Merge joins branches together. </td>
+  </tr>
+  <tr>
+    <td>git merge --abort</td>
+    <td>If there are merge conflicts (meaning files are incompatible), --abort can be used to abort the merge action.</td>
+  </tr>
+  <tr>
+    <td>git log --graph --oneline</td>
+    <td>This shows a summarized view of the commit history for a repo.</td>
+  </tr>
+</table>
 
 
-Functions and Keywords
-Functions and keywords are the building blocks of a language’s syntax.
+# Git Remotes Cheat-Sheet
 
-Functions are pieces of code that perform a unit of work. In the examples we've seen so far, we've only encountered the print() function, which prints a message to the screen. We'll learn about a lot of other functions in later lessons but, if you're too curious to wait until then, you can discover all the functions available here.
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Explanation & Link</th>
+  </tr>
+  <tr>
+    <td>git remote</td>
+    <td>Lists remote repos(https://git-scm.com/docs/git-remote)</td>
+  </tr>
+  <tr>
+    <td>git remote -v</td>
+    <td>List remote repos verbosely(https://git-scm.com/docs/git-remote#Documentation/git-remote.txt--v)</td>
+  </tr>
+  <tr>
+    <td>git remote show <name></td>
+    <td>Describes a single remote repo(https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-emshowem)</td>
+  </tr>
+  <tr>
+    <td>git remote update</td>
+    <td>Fetches the most up-to-date objects(https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-emupdateem)</td>
+  </tr>
+  <tr>
+    <td>git fetch</td>
+    <td>Downloads specific objects(https://git-scm.com/docs/git-fetch)</td>
+  </tr>
+  <tr>
+    <td>git branch -r</td>
+    <td>Lists remote branches; can be combined with other branch arguments to manage remote branches (https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--r)</td>
+  </tr>
+</table>
 
-Keywords are reserved words that are used to construct instructions. We briefly encountered for and in in our first Python example, and we'll use a bunch of other keywords as we go through the course. For reference, these are all the reserved keywords:
 
-![chart](https://user-images.githubusercontent.com/54308434/130379538-cf92388b-9eff-41a6-be3f-fcc40153f33f.JPG)
+# Google Python Style Guide
+More Information on Code Reviews
+http://google.github.io/styleguide/
 
- You don't need to learn this list; we'll dive into each keyword as we encounter them. In the meantime, you can see examples of keyword usage here. 
- Link : https://www.programiz.com/python-programming/keyword-list
+https://help.github.com/en/articles/about-pull-request-reviews
 
-Arithmetic operators
-Python can operate with numbers using the usual mathematical operators, and some special operators, too. These are all of them (we'll explore the last two in later videos).
+https://medium.com/osedea/the-perfect-code-review-process-845e6ba5c31
 
-a + b = Adds a and b
-
-a - b = Subtracts b from a
-
-a * b = Multiplies a and b
-
-a / b = Divides a by b
-
-a ** b = Elevates a to the power of b. For non integer values of b, this becomes a root (i.e. a**(1/2) is the square root of a)
-
-a // b = The integer part of the integer division of a by b
-
-a % b = The remainder part of the integer division of a by b
-
-
-
+https://smartbear.com/learn/code-review/what-is-code-review/
