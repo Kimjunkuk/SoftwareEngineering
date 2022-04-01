@@ -32,25 +32,12 @@
 
 
 # natural language
-# binary search approch
-# declare low_value variable for a lowest value
-# declare mid_value variable for a middle value
-# declare high_value variable for a hightest value
-# declare target variable (x) for taget 
-# declare middle value variable (y) for mid_value 
-# -find the middle value and compare with a target value if the target value is smaller than middle value keep search left side 
-# or if the taget value is bigger than middle value keep search right side. 
-# when I get a  middle index number then get value with the middle index number if it is smaller than target value please research left side values
-# if middle value smaller than target value next? 
-# find the middle value index first by array first index and previous index number. because the previous number going to be lastest value's index. 
-# so middle value's index should come from the first valuse's index and lastest value's index. 
-# middle value index can get by first value index and last value index 
-# last[y]/2 last value index devide by 2 if it float we can use math.trunc round down function. 
-# last[-1]/2
-# mid index has to keep change 
-# check the length of the arr and devide the max len of the arr size and round down the resault.
-# import mid index value and search_element and if mid index value samller than the search_element value replace the midindex number 
-
+# array의 절반을 항상 찾아야 한다. 마지막 index의 값에서 2를 나눈뒤 소수점 자리수를 절삭 하게 되면 중간 index의 값을 얻을 수 있다. 
+# 만약 1차 비교 후 mid_index의 값이 search element보다 작다면 1차 비교에 사용된 mid index는 첫번째 index값이 된다. 
+# 그리고 첫번째 index의 값에서 부터 마지막 값의 index의 수를 다시 2로 나눈뒤 소수점 자리수를 적삭 하게 되면 중간 index를 얻게 된다. 
+# 1차 round down(7/2) 3
+# 2차 round down(7/2)+2 5 or 7-3 + 1
+# 3차 round down(7/2)
 
 
 # code
