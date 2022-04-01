@@ -47,6 +47,9 @@
 # middle value index can get by first value index and last value index 
 # last[y]/2 last value index devide by 2 if it float we can use math.trunc round down function. 
 # last[-1]/2
+# mid index has to keep change 
+# check the length of the arr and devide the max len of the arr size and round down the resault.
+# import mid index value and search_element and if mid index value samller than the search_element value replace the midindex number 
 
 
 
