@@ -40,26 +40,41 @@
 # declare middle value variable (y) for mid_value 
 # -find the middle value and compare with a target value if the target value is smaller than middle value keep search left side 
 # or if the taget value is bigger than middle value keep search right side. 
-when I get a  middle index number then get value with the middle index number if it is smaller than target value please research left side values
-if middle value smaller than target value next? 
-find the middle value index first by array first index and previous index number. because the previous number going to be lastest value's index. 
-so middle value's index should come from the first valuse's index and lastest value's index. 
-middle value index can get by first value index and last value index 
-last[y]/2 last value index devide by 2 if it float we can use math.trunc round down function. 
-last[-1]/2
+# when I get a  middle index number then get value with the middle index number if it is smaller than target value please research left side values
+# if middle value smaller than target value next? 
+# find the middle value index first by array first index and previous index number. because the previous number going to be lastest value's index. 
+# so middle value's index should come from the first valuse's index and lastest value's index. 
+# middle value index can get by first value index and last value index 
+# last[y]/2 last value index devide by 2 if it float we can use math.trunc round down function. 
+# last[-1]/2
+
 
 
 # code
 import math
 
-def search(arr, target):
-  
-  x=taget
-  y=0 # mid value
-  y=math.trunc(len(arr)/2)
-  
+# Python3 program for linear search
+def search(arr, search_Element):
 
-arr=[1,2,3,5,5,6]
-target=9
+  import math
 
-search(arr, target)
+# Python3 program for linear search
+def search(arr, search_Element):
+  mid_index=math.trunc(len(arr)/2)
+  
+  while:
+    if arr[mid_index] == search_element:
+      return arr[mid_index]
+      break
+    elif arr[mid_index] < search_element
+  print()
+  
+  
+# Driver code
+arr = [1, 2, 3, 4, 5, 7, 9]
+search_element = 5
+ 
+# Function call
+search(arr, search_element)
+ 
+# This code is contributed by Dharanendra L V.
