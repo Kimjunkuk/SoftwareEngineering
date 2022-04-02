@@ -1,70 +1,21 @@
-# Given an array of integers nums which is sorted in ascending order, 
-#and an integer target, write a function to search target in nums. 
-#If target exists, then return its index. Otherwise, return -1.
-# You must write an algorithm with O(log n) runtime complexity.
+def search(arr, target):
+  row_index = 0
+  mid_index = 0
+  high_index = len(arr)-1
 
-# Example 1:
+  while high_index >= row_index:
+    mid_index = (high_index+row_index)//2
+    
+    if target > arr[mid_index]:
+      row_index=mid_index+1
+    elif target<arr[mid_index]:
+      high_index=mid_index-1
+    else:
+      return mid_index
+  return -1
+arr = [1, 2, 3, 4, 5, 6, 7]
+target = 7
 
-# Input: nums = [-1,0,3,5,9,12], target = 9
-# Output: 4
-# Explanation: 9 exists in nums and its index is 4
-# Example 2:
+final_result=search(arr, target)
 
-# Input: nums = [-1,0,3,5,9,12], target = 2
-# Output: -1
-# Explanation: 2 does not exist in nums so return -1
- 
-
-# Constraints:
-
-# 1 <= nums.length <= 104
-# -104 < nums[i], target < 104
-# All the integers in nums are unique.
-# nums is sorted in ascending order.
-
-
-#condition
-# 1. sorted array
-# 2. you will be find the target value by middle value if you arroch with a binary search algorithm 
-
-# question list
-# 1. Can use the math libary? math.trunc(x) << round down
-
-
-# natural language
-# array의 절반을 항상 찾아야 한다. 마지막 index의 값에서 2를 나눈뒤 소수점 자리수를 절삭 하게 되면 중간 index의 값을 얻을 수 있다. 
-# 만약 1차 비교 후 mid_index의 값이 search element보다 작다면 1차 비교에 사용된 mid index는 첫번째 index값이 된다. 
-# 그리고 첫번째 index의 값에서 부터 마지막 값의 index의 수를 다시 2로 나눈뒤 소수점 자리수를 적삭 하게 되면 중간 index를 얻게 된다. 
-# 1차 round down(7/2) 3
-# 2차 round down(7/2)+2 5 or 7-3 + 1
-# 3차 round down(7/2)
-
-
-# code
-import math
-
-# Python3 program for linear search
-def search(arr, search_Element):
-
-  import math
-
-# Python3 program for linear search
-def search(arr, search_Element):
-  mid_index=math.trunc(len(arr)/2)
-  
-  while:
-    if arr[mid_index] == search_element:
-      return arr[mid_index]
-      break
-    elif arr[mid_index] < search_element
-  print()
-  
-  
-# Driver code
-arr = [1, 2, 3, 4, 5, 7, 9]
-search_element = 5
- 
-# Function call
-search(arr, search_element)
- 
-# This code is contributed by Dharanendra L V.
+print("The final result:["+str(final_result)+"]")
