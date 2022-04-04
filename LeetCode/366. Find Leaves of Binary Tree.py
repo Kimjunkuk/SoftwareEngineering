@@ -1,98 +1,36 @@
-# A O(n^2) Python3 program for
-# construction of BST from preorder traversal
- 
-# A binary tree node
- 
- 
-class Node():
- 
-    # A constructor to create a new node
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
- 
- 
-# constructTreeUtil.preIndex is a static variable of
-# function constructTreeUtil
- 
-# Function to get the value of static variable
-# constructTreeUtil.preIndex
-def getPreIndex():
-    return constructTreeUtil.preIndex
- 
-# Function to increment the value of static variable
-# constructTreeUtil.preIndex
- 
- 
-def incrementPreIndex():
-    constructTreeUtil.preIndex += 1
- 
-# A recurseive function to construct Full from pre[].
-# preIndex is used to keep track of index in pre[[].
- 
- 
-def constructTreeUtil(pre, low, high):
- 
-        # Base Case
-    if(low > high):
-        return None
- 
-    # The first node in preorder traversal is root. So take
-    # the node at preIndex from pre[] and make it root,
-    # and increment preIndex
-    root = Node(pre[getPreIndex()])
-    incrementPreIndex()
- 
-    # If the current subarray has onlye one element,
-    # no need to recur
-    if low == high:
-        return root
- 
-    r_root = -1
- 
-    # Search for the first element greater than root
-    for i in range(low, high+1):
-        if (pre[i] > root.data):
-            r_root = i
-            break
- 
-    # If no elements are greater than the current root,
-    # all elements are left children
-    # so assign root appropriately
-    if r_root == -1:
-        r_root = getPreIndex() + (high - low)
- 
-    # Use the index of element found in preorder to divide
-    # preorder array in two parts. Left subtree and right
-    # subtree
-    root.left = constructTreeUtil(pre, getPreIndex(), r_root-1)
- 
-    root.right = constructTreeUtil(pre, r_root, high)
- 
-    return root
- 
-# The main function to construct BST from given preorder
-# traversal. This function mailny uses constructTreeUtil()
- 
- 
-def constructTree(pre):
-    size = len(pre)
-    constructTreeUtil.preIndex = 0
-    return constructTreeUtil(pre, 0, size-1)
- 
- 
+class Node:
+    def __init__(self, key):
+        self.left=None
+        self.right=None
+        self.val=key
+        
 def printInorder(root):
-    if root is None:
-        return
-    printInorder(root.left)
-    print (root.data,end=' ')
-    printInorder(root.right)
- 
- 
-# Driver code
-pre = [10, 5, 1, 7, 40, 50]
- 
-root = constructTree(pre)
-print ("Inorder traversal of the constructed tree:")
+    if root:
+        printInorder(root.left)
+        
+        print(root.val),
+        
+        printInorder(root.right)
+
+def printPostoder(root):
+    if root:
+        printPostoder(root.left)
+        printPostoder(root.right)
+        print(root.val),
+        
+def printPreorder(root):
+    if root:
+        print(root.val),
+        printPreorder(root.left)
+        printPreorder(root.right)
+
+#drvie code
+root=Node(1)
+root.left=Node(2)
+root.right=Node(3)
+root.left.left=Node(4)
+root.right.right=Node(5)
+# root.left.right=Node(5)
+
+# printPreorder(root)
 printInorder(root)
