@@ -2,6 +2,11 @@ import pyautogui
 import pyperclip
 import time
 from openpyxl import load_workbook
+from random import *
+import schedule
+from datetime import datetime
+
+
 
 wb = load_workbook("./RPA_projects/SAP_Macro/SBins.xlsx") # 2-24
 ws = wb.active  # 2-25
@@ -45,7 +50,12 @@ def empty_bin_macro_start():
     y=1
     while True:
         verify = ws.cell(row=x, column=y).value # 2-24
+        s=datetime.now().strftime('%H:%M')
+        if s == '11:05' or s == '15:01':
+            time.sleep(3600)
+
         if verify != None:
+            i = randint(10, 35)
             print(str(verify))
             time.sleep(2)
             pyperclip.copy(verify) # 1-25
@@ -55,7 +65,7 @@ def empty_bin_macro_start():
 
             pyautogui.moveTo(211, 198) # 1-28
             pyautogui.click() # 1-29
-            time.sleep(2)
+            time.sleep(i)
 
             pyautogui.moveTo(139, 356) # 1-30
             pyautogui.click() # 1-31
@@ -74,4 +84,6 @@ def empty_bin_macro_start():
 
 
 start_up()
-empty_bin_macro_start()
+schedule.every().saturday.at("08:00").do(empty_bin_macro_start)
+schedule.every().sunday.at("08:00").do(empty_bin_macro_start)
+
