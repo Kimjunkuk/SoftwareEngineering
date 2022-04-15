@@ -84,6 +84,7 @@ def empty_bin_macro_start():
 
 
 start_up()
-schedule.every().saturday.at("08:00").do(empty_bin_macro_start)
-schedule.every().sunday.at("08:00").do(empty_bin_macro_start)
+empty_bin_macro_start()
+# schedule.every().saturday.at("08:00").do(empty_bin_macro_start)
+# schedule.every().sunday.at("08:00").do(empty_bin_macro_start)
 
