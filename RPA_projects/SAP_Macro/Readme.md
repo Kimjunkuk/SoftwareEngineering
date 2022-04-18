@@ -1,9 +1,5 @@
 1. ## [ SAP Macro work flow (Korean version)]
 
-![inventorycount](https://user-images.githubusercontent.com/54308434/163850844-833d5b6d-e869-4eab-ac2d-9501e3d8981c.PNG)
-![Sbin page](https://user-images.githubusercontent.com/54308434/163850857-74de51df-fea5-4e18-8891-d051b66ef773.PNG)
-![Yes](https://user-images.githubusercontent.com/54308434/163850871-fdc52714-6669-4f83-8873-26560b613cae.PNG)
-
 1.Sap_macro.py</br>
 
     1-1.workbook 불러오기
@@ -43,9 +39,5 @@
     1-30.Yes 로 마우스 커서 이동: Point(x=139, y=356)
     1-31.Click "Yes" Icon
 
-    1-32.Exit 아이콘으로 마우스 커서 이동:  Point(x=1886, y=16)
-    1-33.Click "Exit" Icon
-    1-34."Yes" 아이콘으로 마우스 커서 이동:  Point(x=350, y=614)
-    1-35.Click "Yes" Icon
 
     오전 8시에 시작해서 3시간마다 쉬고 오후 8시까지 근무 하도록 

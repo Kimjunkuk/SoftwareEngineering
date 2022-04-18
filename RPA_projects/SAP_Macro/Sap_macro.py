@@ -65,9 +65,9 @@ def empty_bin_macro_start():
         if verify != None:
             s=datetime.now().strftime('%H')
             if int(s) >=11 and int(s) < 12 :
-                time.sleep(3600)
+                time.sleep(3699)
             if int(s) >= 15 and int(s) < 16:
-                time.sleep(3600)
+                time.sleep(3699)
             if int(s) >= 20:
                 break
             
@@ -102,10 +102,10 @@ def empty_bin_macro_start():
 
 
 # start_up()
-# empty_bin_macro_start()
+empty_bin_macro_start()
 # schedule.every().monday.at("12:44").do(empty_bin_macro_start)
-schedule.every().saturday.at("08:00").do(empty_bin_macro_start)
-schedule.every().sunday.at("08:00").do(empty_bin_macro_start)
+# schedule.every().saturday.at("08:00").do(empty_bin_macro_start)
+# schedule.every().sunday.at("08:00").do(empty_bin_macro_start)
 
 while True:
     schedule.run_pending()
