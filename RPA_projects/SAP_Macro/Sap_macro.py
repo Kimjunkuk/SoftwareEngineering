@@ -71,7 +71,7 @@ def empty_bin_macro_start():
             if int(s) >= 20:
                 break
             
-            i = randint(10, 35)
+            i = randint(3, 7)
             print(str(verify))
             time.sleep(2)
             pyperclip.copy(verify) # 1-25
