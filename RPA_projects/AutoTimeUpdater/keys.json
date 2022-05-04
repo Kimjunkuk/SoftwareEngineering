@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cjlogitsticsamericarpa",
+  "private_key_id": "5be92930f795c6c66b096448f7fdbe2875101b0a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCHqvrtv5mA+2tk\nxkUo+gS3Rc6nkDWEnetpBEQZIrEvgXXm3lMkaQoLphPVrYj+5oaJIlSbCxC1YtN4\nC6RX8ZKPlauOdgHSU/d4I5S04bsQ0h/Crg6SZuXKKKMa9BcMOOFOmWwB3aVgph3k\nzLNEhkfLZZySrxHJ30piY+A17NlMokaNDDfcWtAMZA1hQf+1NGDZT5wHuv4LdBVd\n7TZTc8cxk8k16EY3OhznHUxqGud6kvSzSiKMnE64AaZAfzJFXEwxQaWpZYVnXgtO\nK7U7G6NZBCBQV+kNSsju+Oq5agOfKTRu++xNhNqPuZuUd7cUbYR6SWm8ySlgo6DM\nzeAccQh5AgMBAAECggEADqFARn+dItTZ96fO4PSXKhlXx+eL8eVis7QvUMOWNmCA\nUZljf19pYyixZl88kPpUgzjFxWNr1ZeW5NDik8475wp1kdsFZsRBwT2bBWd7N/zk\nymZhMWXxvTtlHVy5mIqQt1xhkpDviszXF+uAIHFXkCZAvGuvICUZXSNWlBIau8Hy\n5nLP8AKNbMxeP1otjJZDEYMwVMccO5FyBf8pyOjBi4ylwlCYk5Flo2tF4aobx1zp\n4tZRgFAKOgYeJMHZtv0zfzgHAJ1tn96m5wlfic6i4I7EtAmdqHfIdlGxFMC5Gurr\noKKJh2+6cQzzzeSjtamNiJH/VSOZFftYxliXvqOSAQKBgQC7YMwXmJ+hGAKbMlM3\n+3Cl35dnEFAszXj3avygjB5WwI4zGkZw855t6YVNEetl/y6XxUia8OJhtk76V3ad\nR24zSl6eoj56PZnbIA/3z34zLLZjAXOGkhu0DPJovI5XMlVYwrlt2GQ7N9/g6Qv2\nle3xClj/a699CyBKYepzBAVDAQKBgQC5WjXXu82a+m/88oF2IcAxZeQ5Wci56GM4\nRHQvAppUKscSWLpsdGk+eB0W60xebYVDUdkzZvciBr9oNEURK+/WJSB49Frl15xV\nI6gvOlOipLR+8pCu8iArSt5ZQamb3avygn9J/3bkl53ba9LbsjBP3fd22q3rH9wK\nGMr0NZ1deQKBgAz1IKfxEfjd5DA/Rqn0ZVHTKHEkG6c9fkP9zgJ8Lgzpu+ukwYJG\nFoqbP3CY8KJZByvPpLmyNrVzGfsN2VH/AovhdLGbnp5tbBpPGUuVubBoQySNkSOZ\nLvlAe/LqNx2oiWZd8Ny7vhKqRn0TIJSowY+Nm6HuHHCVOGJsav4RJRwBAoGBALKc\nJIBkIAf0xs+4HFrqwRqY9ijxxQSo1FvXUyIt3uu2YSjjyZlTQEuLUXTRf0ELRryN\ndcEbuo/WcsIGhHu8nBv+oOENjz4m3CYK+zmvegKjtq8SLav39Fnjhon6RWfGX7iM\nWf7Dpx02oU5dA87jUbzUx2+H4MpPZClypLhZpe/5AoGABGk2HLfDDSccWHRPW33W\nq5JcwuVlxYBPB7kEvdSfzh/jcdcewAyPm9AQrWZoPkZdUBTwlU3ee0fef5YzwTLE\nuR4qaStWYuHCJHAXskdyRyKSpCik2g5mOiZ5riiWcBxAiYQ+z+/YD8FI6hsM/2ka\ntjL43M0A9WwtdjbjEl24H40=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cjlrpa@cjlogitsticsamericarpa.iam.gserviceaccount.com",
+  "client_id": "103219141123970383561",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cjlrpa%40cjlogitsticsamericarpa.iam.gserviceaccount.com"
+}
