@@ -17,6 +17,26 @@ array에 있는 값중 2개의 값이 target으로 주어지는 값이랑 일치
 
 
 """
+# time limit exceeded
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n=len(nums)
+        static_value=0
+        compare_value=0
+        master_value=0
+        for x in range(n):
+            static_value = nums[x]
+            for y in range(1, n):
+                y+=x
+                # range limit
+                if y < n:
+                    compare_value = nums[y]
+                master_value = static_value + compare_value
+                # print("x::"+str(x)+", y::"+str(y)+"::"+str(master_value))
+                if master_value == target:
+                    # print("x,y"+str(x,y))
+                    return [x,y]
+                    break
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
