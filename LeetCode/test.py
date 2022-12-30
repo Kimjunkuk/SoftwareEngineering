@@ -1,1 +1,6 @@
-print(1//2)
+
+maxP=0
+profit=5
+maxP=max(maxP, profit)
+
+print(maxP)
