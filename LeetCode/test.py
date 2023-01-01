@@ -1,6 +1,16 @@
-s="aabb"
-k=len(s)/2
-print(len(set(s)), k)
-n=len(set(s))
-if n==k:
-    print("hello world")
+s="anagram"
+t="nagaram"
+
+import collections
+
+counter= collections.Counter
+
+sl=counter(list(s))
+tl=counter(list(t))
+
+
+print(sl)
+print(tl)
+
+if sl== tl:
+    print("Good")
